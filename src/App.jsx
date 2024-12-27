@@ -98,8 +98,15 @@ const App = () => {
               filteredMovies.map((movie) => (
                 <li key={movie.id}>
                   <h3>{movie.title}</h3>
+                  <p>{movie.overview}</p>
                   <p>Release Date: {movie.release_date}</p>
                   <p>Rating: {movie.vote_average}</p>
+                  <p>Popularity: {movie.popularity}</p>
+                  <p>{movie.adult ? "18+" : "All Ages"}</p>
+                  <img
+                    src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`}
+                    alt={movie.title}
+                  />
                 </li>
               ))
             ) : (
