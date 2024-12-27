@@ -1,6 +1,12 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import './App.css';
+import clockIcon from './assets/clock-icon.png';
+import footerIcon1 from './assets/footer-icon.png';
+import footerIcon2 from './assets/footer-icon-2.png';
+import footerIcon3 from './assets/footer-icon-3.png';
+
+
 
 const App = () => {
 
@@ -66,28 +72,27 @@ const App = () => {
           </button>
           </div>
       </div>
-      <div class="container">
-  <div class="item">
-    <img src="clock-icon.png" alt="icon" />
-    <p>How to design</p>
-  </div>
+      <div className="container">
+        <div className="item">
+          <img src={clockIcon} alt="icon" />
+          <p>How to design</p>
+        </div>
 
-  <div class="item">
-    <img src="clock-icon.png" alt="icon" />
-    <p>How to work hard</p>
-  </div>
+        <div className="item">
+          <img src={clockIcon} alt="icon" />
+          <p>How to work hard</p>
+        </div>
 
-  <div class="item">
-    <img src="clock-icon.png" alt="icon" />
-    <p>How to choose font</p>
-  </div>
+        <div className="item">
+          <img src={clockIcon} alt="icon" />
+          <p>How to choose font</p>
+        </div>
 
-  <div class="item">
-    <img src="clock-icon.png" alt="icon" />
-    <p>How to choose color palette</p>
-  </div>
-</div>
-
+        <div className="item">
+          <img src={clockIcon} alt="icon" />
+          <p>How to choose color palette</p>
+        </div>
+      </div>
         <ul>
             {filteredMovies.length > 0 ? (
               filteredMovies.map((movie) => (
@@ -101,6 +106,11 @@ const App = () => {
               <p></p>
             )}
         </ul>
+        <div className="footer">
+          <img src={footerIcon3} alt="footer icon" />
+          <img src={footerIcon2} alt="footer icon" />
+          <img src={footerIcon1} alt="footer icon" />
+        </div>
     </div>
   )
 };
