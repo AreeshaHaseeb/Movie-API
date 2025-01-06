@@ -3,7 +3,6 @@ import axios from "axios";
 import './App.css';
 import clockIcon from './assets/clock-icon.png';
 import footerIcon1 from './assets/footer-icon.png';
-import footerIcon2 from './assets/footer-icon-2.png';
 import footerIcon3 from './assets/footer-icon-3.png';
 
 
@@ -42,7 +41,7 @@ const App = () => {
     )
   : [];
     return (
-      <div>
+      <div className="app-background">
           <nav className="navbar">
             <div className="logo">
               <h2>Seker</h2>
@@ -62,12 +61,13 @@ const App = () => {
       <div className="search-wrapper">
       <span className="search-icon">🔍</span>
         <input
+          id="input-ID"
           type="text"
-          placeholder="How to design"
+          placeholder="Search for a movie!"
           value={search}
           onChange={(e) => setSearch(e.target.value)}
         />
-          <button className="search-button" onClick={handleSearch}>
+          <button id= "search-id" className="search-button" onClick={handleSearch}>
             Search
           </button>
           </div>
@@ -75,47 +75,49 @@ const App = () => {
       <div className="container">
         <div className="item">
           <img src={clockIcon} alt="icon" />
-          <p>How to design</p>
+          <p>Sonic the Hedgehog 3</p>
         </div>
 
         <div className="item">
           <img src={clockIcon} alt="icon" />
-          <p>How to work hard</p>
+          <p>The Lord of the Rings: The War of the Rohirrim</p>
         </div>
 
         <div className="item">
           <img src={clockIcon} alt="icon" />
-          <p>How to choose font</p>
+          <p>Mufasa: The Lion King</p>
         </div>
 
         <div className="item">
           <img src={clockIcon} alt="icon" />
-          <p>How to choose color palette</p>
+          <p>Gladiator II</p>
         </div>
       </div>
-        <ul>
-            {filteredMovies.length > 0 ? (
-              filteredMovies.map((movie) => (
-                <li key={movie.id}>
-                  <h3>{movie.title}</h3>
-                  <p>{movie.overview}</p>
-                  <p>Release Date: {movie.release_date}</p>
-                  <p>Rating: {movie.vote_average}</p>
-                  <p>Popularity: {movie.popularity}</p>
-                  <p>{movie.adult ? "18+" : "All Ages"}</p>
-                  <img
-                    src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`}
-                    alt={movie.title}
-                  />
-                </li>
-              ))
-            ) : (
-              <p></p>
-            )}
-        </ul>
+      <ul>
+        {searchQuery ? ( 
+          filteredMovies.length > 0 ? (
+            filteredMovies.map((movie) => (
+              <li key={movie.id}>
+                <h3>{movie.title}</h3>
+                <p>{movie.overview}</p>
+                <p>Release Date: {movie.release_date}</p>
+                <p>Rating: {movie.vote_average}</p>
+                <p>Popularity: {movie.popularity}</p>
+                <p>{movie.adult ? "18+" : "All Ages"}</p>
+                <img
+                  src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`}
+                  alt={movie.title}
+                />
+              </li>
+            ))
+          ) : (
+            <p>No movies found! Maybe search for something else?</p>
+          )
+        ) : null 
+        }
+      </ul>
         <div className="footer">
           <img src={footerIcon3} alt="footer icon" />
-          <img src={footerIcon2} alt="footer icon" />
           <img src={footerIcon1} alt="footer icon" />
         </div>
     </div>
